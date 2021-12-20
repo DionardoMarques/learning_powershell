@@ -7,13 +7,14 @@ function Get-FileSHA1($filePath) {
     $hash = $sha1.ComputeHash($fileBytes)
 
     $prettyHashSB = New-Object System.Text.StringBuilder
+
     foreach ($byte in $hash) {
         $hexaNotation = $byte.ToString("X2")
         $prettyHashSB.Append($hexaNotation)
     }
 
 
-    Write-Host $hash -BackgroundColor Red -ForegroundColor Yellow
+    Write-Host $prettyHashSB.ToString() -BackgroundColor Red -ForegroundColor Yellow
 }
 
 Get-FileSHA1 G:\Curso_PowerShell_II\ShaFile.PS1
